@@ -12,7 +12,7 @@ obj430811.Parent = game.Workspace
 local obj529986 = Instance.new("ModuleScript")
 obj529986.Name = "Cum"
 obj529986.Source = "local cumshots = {}\nlocal cumgravity = 60\n"
-\
+
 local rng = Random.new()\
 \
 function newcumshot(cframe, vel, ignore)\
