@@ -49,8 +49,7 @@ function newcumshot(cframe, vel, ignore)
 	cum.Parent = workspace.CurrentCamera
 end
 ]]
-	end\
-	points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition, vel + extravel, false};\
+        points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition, vel + extravel, false};\
 	sphere.Bone.Position = Vector3.zero\
 	cum.Parent = workspace.CurrentCamera\
 \
