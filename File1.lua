@@ -33,7 +33,6 @@ function newcumshot(cframe, vel, ignore)
 	sphere.CanTouch = false
 	sphere.Massless = true
 ]]
-
 	for i = 1, 8 do\
 		local v = sphere['Bone.00'..i]\
 		if v then\
