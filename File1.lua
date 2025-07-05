@@ -34,9 +34,9 @@ function newcumshot(cframe, vel, ignore)
 	sphere.Massless = true
 ]]
 
-	for i = 1, 8 do\
-		local v = sphere['Bone.00'..i]\
-		if v then\
+	for i = 1, 8 do
+		local v = sphere['Bone.00'..i]
+		if v then
 			--v.Orientation = Vector3.zero\
 			points[#points + 1] = {v, 0, t0, v.WorldPosition, vel + extravel, false};\
 			t0 += i % 2 == 0 and 1 / 60 or 0;\
