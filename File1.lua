@@ -57,7 +57,7 @@ end
 		points = points;
 		ignore = ignore;
 }
-end
+
 
 game:GetService('RunService').Heartbeat:Connect(function(dt)
 	local j = 1
