@@ -14,7 +14,7 @@ obj529986.Name = "Cum"
 obj529986.Source = [[
 local cumshots = {}
 local cumgravity = 60
-
+]]
 local rng = Random.new()
 
 function newcumshot(cframe, vel, ignore)
@@ -32,7 +32,7 @@ function newcumshot(cframe, vel, ignore)
 	sphere.CanQuery = false
 	sphere.CanTouch = false
 	sphere.Massless = true
-]]
+
 	for i = 1, 8 do
 		local v = sphere['Bone.00'..i]
 		if v then
