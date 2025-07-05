@@ -50,19 +50,19 @@ end
 	cum.Parent = workspace.CurrentCamera
 
 	sphere.Transparency = 0.5
-	cumshots[#cumshots + 1] = {\
-		cum = cum;\
-		mainpart = sphere;\
-		life = rng:NextNumber(5, 6);\
-		points = points;\
-		ignore = ignore;\
-	}\
+	cumshots[#cumshots + 1] = {
+		cum = cum;
+		mainpart = sphere;
+		life = rng:NextNumber(5, 6);
+		points = points;
+		ignore = ignore;
+}
 end\
-\
-game:GetService('RunService').Heartbeat:Connect(function(dt)\
-	local j = 1\
-	for i = 1, #cumshots do\
-		local v = cumshots[i]\
+
+game:GetService('RunService').Heartbeat:Connect(function(dt)
+	local j = 1
+	for i = 1, #cumshots do
+		local v = cumshots[i]
 		cumshots[i] = nil\
 		if not v or not v.cum or not v.cum.Parent then\
 			continue\
