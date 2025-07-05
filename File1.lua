@@ -11,7 +11,7 @@ obj430811.BrickColor = BrickColor.new("Medium stone grey")
 obj430811.Parent = game.Workspace
 local obj529986 = Instance.new("ModuleScript")
 obj529986.Name = "Cum"
-obj529986.Source = "[[
+obj529986.Source = [[
 local cumshots = {}
 local cumgravity = 60
 
@@ -32,7 +32,7 @@ function newcumshot(cframe, vel, ignore)
 	sphere.CanQuery = false
 	sphere.CanTouch = false
 	sphere.Massless = true
-
+]]
 	for i = 1, 8 do
 		local v = sphere['Bone.00'..i]
 		if v then
