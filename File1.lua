@@ -11,26 +11,28 @@ obj430811.BrickColor = BrickColor.new("Medium stone grey")
 obj430811.Parent = game.Workspace
 local obj529986 = Instance.new("ModuleScript")
 obj529986.Name = "Cum"
-obj529986.Source = "local cumshots = {}\
-local cumgravity = 60\
-\
-local rng = Random.new()\
-\
-function newcumshot(cframe, vel, ignore)\
-	local cum = script.cumshot:Clone()\
-	local points = {}\
-	local t0 = 0\
-	local extravel = Vector3.zero\
-\
-	cum:ScaleTo(rng:NextNumber(0.03, 0.05))\
-\
-	local sphere = cum.Sphere\
-	sphere.CFrame = cframe * CFrame.Angles(math.rad(90), 0, 0)\
-	sphere.Anchored = true\
-	sphere.CanCollide = false\
-	sphere.CanQuery = false\
-	sphere.CanTouch = false\
-	sphere.Massless = true\
+obj529986.Source = [[
+local cumshots = {}
+local cumgravity = 60
+
+local rng = Random.new()
+
+function newcumshot(cframe, vel, ignore)
+	local cum = script.cumshot:Clone()
+	local points = {}
+	local t0 = 0
+	local extravel = Vector3.zero
+
+	cum:ScaleTo(rng:NextNumber(0.03, 0.05))
+
+	local sphere = cum.Sphere
+	sphere.CFrame = cframe * CFrame.Angles(math.rad(90), 0, 0)
+	sphere.Anchored = true
+	sphere.CanCollide = false
+	sphere.CanQuery = false
+	sphere.CanTouch = false
+	sphere.Massless = true
+]]
 \
 	for i = 1, 8 do\
 		local v = sphere['Bone.00'..i]\
