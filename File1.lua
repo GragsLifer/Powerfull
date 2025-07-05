@@ -11,35 +11,44 @@ obj430811.BrickColor = BrickColor.new("Medium stone grey")
 obj430811.Parent = game.Workspace
 local obj529986 = Instance.new("ModuleScript")
 obj529986.Name = "Cum"
-obj529986.Source = "local cumshots = {}\nlocal cumgravity = 60"
-local rng = Random.new()\
-\
-function newcumshot(cframe, vel, ignore)\
-	local cum = script.cumshot:Clone()\
-	local points = {}\
-	local t0 = 0\
-	local extravel = Vector3.zero\
-\
-	cum:ScaleTo(rng:NextNumber(0.03, 0.05))\
-\
-	local sphere = cum.Sphere\
-	sphere.CFrame = cframe * CFrame.Angles(math.rad(90), 0, 0)\
-	sphere.Anchored = true\
-	sphere.CanCollide = false\
-	sphere.CanQuery = false\
-	sphere.CanTouch = false\
-	sphere.Massless = true\
-\
-	for i = 1, 8 do\
-		local v = sphere['Bone.00'..i]\
-		if v then\
-			--v.Orientation = Vector3.zero\
-			points[#points + 1] = {v, 0, t0, v.WorldPosition, vel + extravel, false};\
-			t0 += i % 2 == 0 and 1 / 60 or 0;\
-			vel *= rng:NextNumber(0.925, 0.975)\
-			extravel = rng:NextUnitVector() * .1\
-			v.Position = Vector3.zero\
-		end\
+obj529986.Source = [[
+local cumshots = {}
+local cumgravity = 60
+
+local rng = Random.new()
+
+function newcumshot(cframe, vel, ignore)
+	local cum = script.cumshot:Clone()
+	local points = {}
+	local t0 = 0
+	local extravel = Vector3.zero
+
+	cum:ScaleTo(rng:NextNumber(0.03, 0.05))
+
+	local sphere = cum.Sphere
+	sphere.CFrame = cframe * CFrame.Angles(math.rad(90), 0, 0)
+	sphere.Anchored = true
+	sphere.CanCollide = false
+	sphere.CanQuery = false
+	sphere.CanTouch = false
+	sphere.Massless = true
+
+	for i = 1, 8 do
+		local v = sphere['Bone.00'..i]
+		if v then
+			points[#points + 1] = {v, 0, t0, v.WorldPosition}
+			t0 += i % 2 == 0 and 1 / 60 or 0
+			vel *= rng:NextNumber(0.925, 0.975)
+			extravel = rng:NextUnitVector() * .1
+			v.Position = Vector3.zero
+		end
+	end
+
+	points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition}
+	sphere.Bone.Position = Vector3.zero
+	cum.Parent = workspace.CurrentCamera
+end
+]]
 	end\
 	points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition, vel + extravel, false};\
 	sphere.Bone.Position = Vector3.zero\
