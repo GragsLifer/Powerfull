@@ -38,18 +38,18 @@ function newcumshot(cframe, vel, ignore)
 		local v = sphere['Bone.00'..i]
 		if v then
 			--v.Orientation = Vector3.zero\
-			points[#points + 1] = {v, 0, t0, v.WorldPosition, vel + extravel, false};\
-			t0 += i % 2 == 0 and 1 / 60 or 0;\
-			vel *= rng:NextNumber(0.925, 0.975)\
-			extravel = rng:NextUnitVector() * .1\
-			v.Position = Vector3.zero\
-		end\
-	end\
-	points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition, vel + extravel, false};\
-	sphere.Bone.Position = Vector3.zero\
-	cum.Parent = workspace.CurrentCamera\
-\
-	sphere.Transparency = 0.5\
+			points[#points + 1] = {v, 0, t0, v.WorldPosition, vel + extravel, false};
+			t0 += i % 2 == 0 and 1 / 60 or 0;
+			vel *= rng:NextNumber(0.925, 0.975)
+			extravel = rng:NextUnitVector() * .1
+			v.Position = Vector3.zero
+	end
+end
+	points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition, vel + extravel, false};
+	sphere.Bone.Position = Vector3.zero
+	cum.Parent = workspace.CurrentCamera
+
+	sphere.Transparency = 0.5
 	cumshots[#cumshots + 1] = {\
 		cum = cum;\
 		mainpart = sphere;\
