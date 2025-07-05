@@ -144,7 +144,7 @@ return function(ignore_list)
 	
 	return newcumshot, cm_ignore
 end
-"
+
 obj529986.Parent = game.ReplicatedStorage
     local obj420417 = Instance.new("Model")
     obj420417.Name = "cumshot"
