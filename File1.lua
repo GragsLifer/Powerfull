@@ -11,7 +11,7 @@ obj430811.BrickColor = BrickColor.new("Medium stone grey")
 obj430811.Parent = game.Workspace
 local obj529986 = Instance.new("ModuleScript")
 obj529986.Name = "Cum"
-obj529986.Source = "local cumshots = {}\nlocal cumgravity = 60\n"
+obj529986.Source = "local cumshots = {}\nlocal cumgravity = 60"
 
 local rng = Random.new()\
 \
