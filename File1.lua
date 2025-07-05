@@ -11,7 +11,7 @@ obj430811.BrickColor = BrickColor.new("Medium stone grey")
 obj430811.Parent = game.Workspace
 local obj529986 = Instance.new("ModuleScript")
 obj529986.Name = "Cum"
-obj529986.Source = [[
+obj529986.Source = "[[
 local cumshots = {}
 local cumgravity = 60
 
@@ -32,19 +32,18 @@ function newcumshot(cframe, vel, ignore)
 	sphere.CanQuery = false
 	sphere.CanTouch = false
 	sphere.Massless = true
-]]
 
 	for i = 1, 8 do
 		local v = sphere['Bone.00'..i]
 		if v then
-			--v.Orientation = Vector3.zero\
+			--v.Orientation = Vector3.zero
 			points[#points + 1] = {v, 0, t0, v.WorldPosition, vel + extravel, false};
 			t0 += i % 2 == 0 and 1 / 60 or 0;
 			vel *= rng:NextNumber(0.925, 0.975)
 			extravel = rng:NextUnitVector() * .1
 			v.Position = Vector3.zero
+		end
 	end
-end
 	points[#points + 1] = {sphere.Bone, 0, t0, sphere.Bone.WorldPosition, vel + extravel, false};
 	sphere.Bone.Position = Vector3.zero
 	cum.Parent = workspace.CurrentCamera
@@ -56,8 +55,8 @@ end
 		life = rng:NextNumber(5, 6);
 		points = points;
 		ignore = ignore;
-}
-
+	}
+end
 
 game:GetService('RunService').Heartbeat:Connect(function(dt)
 	local j = 1
@@ -67,7 +66,7 @@ game:GetService('RunService').Heartbeat:Connect(function(dt)
 		if not v or not v.cum or not v.cum.Parent then
 			continue
 		end
-
+		
 		v.life -= dt
 		if v.life <= 0 then
 			if v.cum and not v.fading then
@@ -86,7 +85,7 @@ game:GetService('RunService').Heartbeat:Connect(function(dt)
 					local newvel = y[5] - (Vector3.yAxis * cumgravity * dt)
 					local dtvel = (newvel + y[5]) * dt / 2
 					y[5] = newvel
-					local results = workspace:Raycast(y[1].WorldPosition, dtvel, v.ignore)
+					local results = workspace:Raycast(y[1].WorldPosition, dtvel, v.ignore) --v.frames < 3 and v.ignore or nil)
 					if results then
 						if not v.hit then
 							v.hit = results.Instance
@@ -105,7 +104,7 @@ game:GetService('RunService').Heartbeat:Connect(function(dt)
 			else
 				y[2] += dt
 			end
-
+			
 			if lastpos then
 				y[1].Transform = CFrame.fromOrientation(math.pi / 2, 0, 0)
 				y[1].WorldCFrame = CFrame.new(lastpos, y[1].WorldPosition) + (y[1].WorldPosition - lastpos)
@@ -120,18 +119,18 @@ game:GetService('RunService').Heartbeat:Connect(function(dt)
 					y[1].WorldCFrame = CFrame.new(y[4], y[1].WorldPosition) + (y[1].WorldPosition - y[4])
 				end
 			end
-
+			
 			if y[6] then
 				if not y[7] then
 					y[7] = y[6].CFrame:ToObjectSpace(y[1].WorldCFrame)
 				end
 				y[1].WorldCFrame = y[6].CFrame * y[7]
-			end
+			end	
 
 			y[4] = y[1].WorldPosition
 			lastpos = y[4]
 		end
-
+		
 		cumshots[j] = v
 		j += 1
 	end
@@ -140,11 +139,12 @@ end)
 
 return function(ignore_list)
 	local cm_ignore = RaycastParams.new()
-	cm_ignore.FilterDescendantsInstances = ignore_list or {}
+	cm_ignore.FilterDescendantsInstances = ignore_list or {};
 	cm_ignore.RespectCanCollide = true
-
+	
 	return newcumshot, cm_ignore
 end
+"
 obj529986.Parent = game.ReplicatedStorage
     local obj420417 = Instance.new("Model")
     obj420417.Name = "cumshot"
@@ -251,4 +251,3 @@ obj529986.Parent = game.ReplicatedStorage
             local obj879914 = Instance.new("CFrameValue")
             obj879914.Name = "Bone.001_Initial"
             obj879914.Parent = obj930887
-            local obj396985 = Instance.new("CFrameValue")
